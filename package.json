@@ -5,6 +5,7 @@
   "main": "index.js",
   "homepage": "https://Tanulka.github.io/goit-js-hw-12-countries",
   "scripts": {
+    "start": "npm run dev",
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-12-countries/"
   },
@@ -24,5 +25,9 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "pnotify": "^5.2.0"
   }
 }
