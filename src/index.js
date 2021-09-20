@@ -38,6 +38,5 @@ function renderCountryCard(country) {
 }
 
 function onFetchError(error) {
-  console.log(error);
   alert({ text: 'The name is not entered correctly. Please enter country name' });
 }
