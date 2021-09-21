@@ -7,19 +7,18 @@ import fetchCountries from './js/fetchCountries';
 import { alert, error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
+import { list } from 'postcss';
 
 const refs = getRefs();
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 1000));
 
 function onSearch(e) {
+  clearList();
   const input = e.target;
   const searchQuery = input.value;
 
-  fetchCountries(searchQuery)
-    .then(renderCountryCard)
-    .catch(onFetchError)
-    .finally(() => (input.value = ''));
+  fetchCountries(searchQuery).then(renderCountryCard).catch(onFetchError);
 }
 
 function renderCountryCard(country) {
@@ -39,4 +38,8 @@ function renderCountryCard(country) {
 
 function onFetchError(error) {
   alert({ text: 'The name is not entered correctly. Please enter country name' });
+}
+
+function clearList() {
+  refs.list.innerHTML = '';
 }
